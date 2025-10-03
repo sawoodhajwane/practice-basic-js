@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>body {
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.dark {
+  background: #121212;
+  color: #ffffff;
+}
+
+button{
+      padding: 8px 15px;
+  margin: 4px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#secret{
+    width: 80%;
+    height: 60%;
+    border: 10px;
+    padding: 8px;
+    border-radius: 6px;
+
+
+    
+}
+#toggle {
+  padding: 8px 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+    <div id="secret" class="box">
+        <h1>Dom Manipulation</h1>
+
+
+    <h1 id="title">0</h1>
+<button id="btn">Add 1</button>
+<button id="remove-btn">Remove 1</button>
+<button id="reset">Reset</button><br>
+<button id="toggle">Toggle Dark Mode</button><br>
+</div>
+<button id="toggleMsg">Show / Hide</button>
+
+<script>
+    let count= 0
+const btn = document.getElementById("btn");
+const remove=document.getElementById("remove-btn");
+const title = document.getElementById("title");
+const reset=document.getElementById("reset");
+
+btn.addEventListener("click", () => {
+    count++
+  title.textContent = count;
+});
+
+remove.addEventListener("click",()=>{
+    if(count>0){
+    count--
+    }
+    title.textContent= count;
+})
+
+reset.addEventListener("click", ()=>{
+    count=0
+    title.textContent=count;
+})
+
+
+const toggleBtn = document.getElementById("toggle");
+const body = document.body;
+
+toggleBtn.addEventListener("click", () => {
+  body.classList.toggle("dark");
+
+  if (body.classList.contains("dark")) {
+    toggleBtn.textContent = "☀️ Light Mode";
+  } else {
+    toggleBtn.textContent = "🌙 Dark Mode";
+  }
+});
+
+
+const msg = document.getElementById("secret");
+const hidebtn = document.getElementById("toggleMsg");
+
+hidebtn.addEventListener("click", () => {
+  if (msg.style.display === "none") {
+    msg.style.display = "block";
+  } else {
+    msg.style.display = "none";
+  }
+});
+</script>
+
+    
+</body>
+</html>

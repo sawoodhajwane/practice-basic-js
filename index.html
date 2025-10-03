@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+   
+</head>
+<body>
+    <h1 class="first">hello</h1>
+    <h1>world</h1>
+    <h1 class="first">learn</h1>
+    <h2 class="first">javascript</h2>
+    <div class="conta">
+        <p class="one">hello 1</p>
+        <p class="two"> hello 2</p>
+        <p> hello 3</p>
+        <p> hello 4</p>
+        <p class="last">hello 5</p>
+    </div>
+     <Script>
+        let parent= document.querySelector(".conta")
+        console.log(parent.firstElementChild)
+                console.log(parent.lastElementChild)
+                console.log(parent.nextElementSibling)
+
+                let newdiv= document.createElement("div")
+                newdiv.innerHTML="<p>This element is created from JS</p>"
+                document.body.appendChild(newdiv)
+               let text=document.getElementsByTagName("body")
+               console.log(text.textContent)
+    </Script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+</head>
+<body>
+    <div class="cart">
+  <h2>Shopping Cart</h2>
+  
+  <div class="item">
+    <p>🧢 Cap</p>
+    <button class="decrease">-</button>
+    <span class="quantity">0</span>
+    <button class="increase">+</button>
+  </div>
+  
+  <div class="item">
+    <p>👟 Shoes</p>
+    <button class="decrease">-</button>
+    <span class="quantity">0</span>
+    <button class="increase">+</button>
+  </div>
+  
+  <div class="item">
+    <p>🎒 Bag</p>
+    <button class="decrease">-</button>
+    <span class="quantity">0</span>
+    <button class="increase">+</button>
+  </div>
+
+  <h3>Total Items: <span id="total">0</span></h3>
+</div>
+<script>
+const items = document.querySelectorAll(".item");
+const totalEl = document.getElementById("total");
+let total = 0;
+
+items.forEach(item => {
+  const decreaseBtn = item.querySelector(".decrease");
+  const increaseBtn = item.querySelector(".increase");
+  const quantityEl = item.querySelector(".quantity");
+
+  let quantity = 0;
+
+  increaseBtn.addEventListener("click", () => {
+    quantity++;
+    quantityEl.textContent = quantity;
+    total++;
+    totalEl.textContent = total;
+  });
+
+  decreaseBtn.addEventListener("click", () => {
+    if (quantity > 0) {
+      quantity--;
+      quantityEl.textContent = quantity;
+      total--;
+      totalEl.textContent = total;
+    }
+  });
+});
+</script>
+</body>
+</html>
