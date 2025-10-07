@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    .container{
+     
+    display: flex;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    button{
+        padding: 0.7em 2em;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #000;
+        border: none;
+        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        outline: none;
+        margin: 2px ;
+        white-space: 6; 
+        border: 1px ;
+        border-radius: 25px;
+        background-color: aliceblue;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    }
+    button:hover{
+        background-color: #000;
+        color: #fff;
+        
+    }
+    .leftcont{
+        display: flex;
+        justify-content: left;
+    }
+</style>
+</head>
+<body>
+<div class="container"><h2>Data</h2></div>
+<div class="container">
+<button id="loadData">Load Todo Data from json url</button>
+<button id="btn_fruits">Load from local json file</button>
+<button id="reset">Reset</button></div>
+<div class="container"><div class="leftcont"><ul id="tododata"></ul></div></div>
+<script>
+  const btn = document.getElementById("loadData");
+  const tododata = document.getElementById("tododata");
+  const btn2 = document.getElementById("btn_fruits");
+  const reset= document.getElementById("reset")
+
+  reset.addEventListener("click",function reset(){
+    tododata.innerHTML = "";
+  })
+
+  btn.addEventListener("click", async () => {
+    tododata.innerHTML = "<li>Loading...</li>";
+
+
+
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+      const data = await response.json();
+
+      // Clear old content
+      tododata.innerHTML = "";
+
+      // Loop through data and add to DOM
+      data.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.id} — ${item.title}`;
+        tododata.appendChild(li);
+      });
+    } catch (error) {
+      todo.innerHTML = "<li>Failed to load data </li>";
+      console.error(error);
+    }
+
+    
+  });
+  
+  btn2.addEventListener("click", async () => {
+    tododata.innerHTML = "<li>Loading...</li>";
+
+
+
+    try {
+      const response = await fetch("fruits.json");
+      const data = await response.json();
+
+      // Clear old content
+      tododata.innerHTML = "";
+
+      // Loop through data and add to DOM
+      data.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.id} — ${item.name}`;
+        tododata.appendChild(li);
+      });
+    } catch (error) {
+      todo.innerHTML = "<li>Failed to load data </li>";
+      console.error(error);
+    }
+
+    
+  });
+
+</script>
+
+
+</body>
+</html>

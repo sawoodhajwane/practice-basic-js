@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <h1>Promises</h1>
+    <h5>Open the console</h5>
+
+
+    <script>
+    let promise1=new Promise (function(resolve, reject){
+        setTimeout(function(){
+        console.log("promise 1");
+         },5000)
+    resolve("resolved 1");
+    });
+
+    let promise2=new Promise (function(resolve, reject){
+        setTimeout(function(){
+        console.log("promise 2");
+         },1000)
+        resolve("resolved 2");
+    });
+
+    let promise3=new Promise (function(resolve, reject){
+        setTimeout(function(){
+        console.log("promise 3");
+         },3000)
+    resolve("error on 3");
+    });
+
+    
+    Promise.race([promise1,promise2, promise3]).then(function(result){
+        console.log(result);
+    }).catch(function(error){
+        console.error(error);
+        
+    })
+
+
+</script>
+    
+</body>
+</html>
