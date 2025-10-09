@@ -1,0 +1,112 @@
+
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #141414; 
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: white; 
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .search-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    input[type="text"] {
+      padding: 12px 15px;
+      font-size: 16px;
+      width: 300px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      background-color: #333;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    input[type="text"]::placeholder {
+      color: #bbb;
+    }
+
+    input[type="text"]:focus {
+      box-shadow: 0 0 5px #e50914;
+      border: 1px solid #e50914;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      background-color: #e50914; /* Netflix red */
+      color: #fff;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #b00610;
+    }
+
+    #result {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+  
+    .movie-card {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      padding: 10px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+    }
+
+    .movie-card img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .movie-card h3 {
+      font-size: 16px;
+      margin: 5px 0;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .movie-card p {
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    @media(max-width: 600px) {
+      input[type="text"] {
+        width: 180px;
+      }
+    }
